@@ -23,10 +23,13 @@ public class Joc {
 			int creus=0;
 			String perden ="";
 			
+			System.out.println("--------------");
+			
 			for(int i =0; i<banquers.size();i++){
 				banquers.get(i).tira(laTirada[aleatori.nextInt(laTirada.length)]);
 				
 				haTirat = banquers.get(i).queHasTret();
+				System.out.println(banquers.get(i).getNom()+" ha tret: "+haTirat);
 				if(haTirat.equals(laTirada[0])){
 					cares =+ 1;
 				}else{
@@ -57,9 +60,11 @@ public class Joc {
 		
 		if(banquers.size()==2){
 			bosses = bosses/2;
-			//Dar bolsas a los banqueros
+			for(int i =0; i<banquers.size();i++){
+				banquers.get(i).setBosses(bosses);
+			}
 		}else{
-			//Dar bolsas al banquero
+			banquers.get(0).setBosses(bosses);
 		}
 		
 		

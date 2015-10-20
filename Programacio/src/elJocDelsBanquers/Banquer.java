@@ -16,6 +16,10 @@ public class Banquer {
 	public String getNom(){
 		return nom;
 	}
+	
+	public void setBosses(int quantitatBosses){
+		bosses = bosses + quantitatBosses;
+	}
 
 	public int getBosses(){
 		return bosses;
