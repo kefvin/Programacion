@@ -18,13 +18,15 @@ public class Joc {
 		int bosses=0;
 		String haTirat="";
 		
-		while(banquers.size()>=2){
+		//Mientras que el tamaño de banques sea mas grande qeu 2 repite
+		while(banquers.size()>2){
 			int cares=0;
 			int creus=0;
 			String perden ="";
 			
 			System.out.println("--------------");
 			
+			//Recorre banquers y coprova que han sacado al tirar la moneda
 			for(int i =0; i<banquers.size();i++){
 				banquers.get(i).tira(laTirada[aleatori.nextInt(laTirada.length)]);
 				
@@ -36,16 +38,13 @@ public class Joc {
 					creus =+ 1;
 				}
 			}
+			
+			//Comprueva quien ha perdido y los elimina
 			if(cares>creus){
 				
 				perden=laTirada[0];
 				
-			}else if(cares<creus){
-				
-				perden=laTirada[1];
-				
-			}else if(!(cares==creus)){
-				
+				//busca y elimina a los que han perdido
 				for(int i =0; i<banquers.size();i++){
 					
 					if(perden.equals(banquers.get(i).queHasTret())){
@@ -55,6 +54,25 @@ public class Joc {
 					
 					}
 				}
+				
+			}else if(cares<creus){
+				
+				perden=laTirada[1];
+				
+				//busca y elimina a los que han perdido
+				for(int i =0; i<banquers.size();i++){
+					
+					if(perden.equals(banquers.get(i).queHasTret())){
+						
+						bosses = bosses + banquers.get(i).getBosses();
+						banquers.remove(i);
+					
+					}
+				}
+				
+			}else if((cares==creus)){
+				
+				
 			}
 		}
 		
