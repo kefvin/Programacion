@@ -18,6 +18,10 @@ public class Joc {
 		int bosses=0;
 		String haTirat="";
 		
+		for(int i=0;i<banquers.size();i++){
+			bosses = bosses + banquers.get(i).getBosses();
+		}
+		
 		//Mientras que el tamaño de banques sea mas grande qeu 2 repite
 		while(banquers.size()>2){
 			int cares=0;
@@ -31,11 +35,13 @@ public class Joc {
 				banquers.get(i).tira(laTirada[aleatori.nextInt(laTirada.length)]);
 				
 				haTirat = banquers.get(i).queHasTret();
+				
 				System.out.println(banquers.get(i).getNom()+" ha tret: "+haTirat);
+				
 				if(haTirat.equals(laTirada[0])){
-					cares =+ 1;
+					cares++;
 				}else{
-					creus =+ 1;
+					creus++;
 				}
 			}
 			
@@ -48,11 +54,11 @@ public class Joc {
 				for(int i =0; i<banquers.size();i++){
 					
 					if(perden.equals(banquers.get(i).queHasTret())){
-						
-						bosses = bosses + banquers.get(i).getBosses();
 						banquers.remove(i);
+
 					
 					}
+
 				}
 				
 			}else if(cares<creus){
@@ -64,10 +70,11 @@ public class Joc {
 					
 					if(perden.equals(banquers.get(i).queHasTret())){
 						
-						bosses = bosses + banquers.get(i).getBosses();
 						banquers.remove(i);
+						
 					
 					}
+
 				}
 				
 			}else if((cares==creus)){
@@ -76,13 +83,16 @@ public class Joc {
 			}
 		}
 		
-		if(banquers.size()==2){
+		if(banquers.size()>1){
 			bosses = bosses/2;
 			for(int i =0; i<banquers.size();i++){
 				banquers.get(i).setBosses(bosses);
 			}
+			System.out.print("Han guanyat els banquers "+banquers.get(0).getNom()+" i "+banquers.get(1).getNom()+" cadascú té "+
+			bosses);
 		}else{
 			banquers.get(0).setBosses(bosses);
+			System.out.print("Ha guanyat el banquer"+banquers.get(0).getNom()+" i té "+bosses);
 		}
 		
 		

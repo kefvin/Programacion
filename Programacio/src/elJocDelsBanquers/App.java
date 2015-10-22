@@ -12,7 +12,7 @@ public class App {
 
 	public static void main(String[] args) {
 
-		int quantitatBanquers = 4;
+		int quantitatBanquers = 3;
 		
 		List<Banquer> banquers = new ArrayList<Banquer>();
 		
