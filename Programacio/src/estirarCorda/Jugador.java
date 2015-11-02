@@ -1,7 +1,6 @@
 package estirarCorda;
 
 import java.util.Random;
-
 import acm.graphics.GImage;
 import acm.graphics.GRectangle;
 
@@ -16,13 +15,13 @@ public class Jugador {
 		
 	}
 	
+	//retorna la posicio
 	public GRectangle getPosicio() {
 	    return imagen.getBounds();
 	}
 	
-	public void mou(int x) {
-	    imagen.move(x * 1 , 0);
-	  }
+	
+	//Retorna la força
 	public int getFuerza(){
 		fuerza=aleatori.nextInt(20);
 		return fuerza;

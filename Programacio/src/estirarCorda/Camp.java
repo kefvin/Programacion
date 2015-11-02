@@ -16,7 +16,7 @@ public class Camp {
 	
 	public void play(List<Jugador> equipEsquerre, List<Jugador> equipDreta, int Qjugadors, GRect corda){
 		
-		
+		//coloca la corda
 		corda.setLocation((mida.getWidth()/2)-200,(mida.getHeight()/2)-5);
 		
 		
