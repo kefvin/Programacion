@@ -46,38 +46,38 @@ public class Joc {
 			}
 			
 			//Comprueva quien ha perdido y los elimina
-			if(cares>creus){
+			if((cares==creus)){
+				if(cares>creus){
 				
-				perden=laTirada[0];
+					perden=laTirada[0];
 				
-				//busca y elimina a los que han perdido
-				for(int i =0; i<banquers.size();i++){
+					//busca y elimina a los que han perdido
+					for(int i =0; i<banquers.size();i++){
 					
-					if(perden.equals(banquers.get(i).queHasTret())){
-						banquers.remove(i);
+						if(perden.equals(banquers.get(i).queHasTret())){
+							banquers.remove(i);
+							i--;
+					
+						}
 
-					
 					}
+				
+				}else if(cares<creus){
+				
+					perden=laTirada[1];
+				
+					//busca y elimina a los que han perdido
+					for(int i =0; i<banquers.size();i++){
+					
+						if(perden.equals(banquers.get(i).queHasTret())){
+							banquers.remove(i);
+							i--;
+					
+						}
 
-				}
-				
-			}else if(cares<creus){
-				
-				perden=laTirada[1];
-				
-				//busca y elimina a los que han perdido
-				for(int i =0; i<banquers.size();i++){
-					
-					if(perden.equals(banquers.get(i).queHasTret())){
-						
-						banquers.remove(i);
-						
-					
 					}
-
-				}
 				
-			}else if((cares==creus)){
+				}
 				
 				
 			}
@@ -89,10 +89,10 @@ public class Joc {
 				banquers.get(i).setBosses(bosses);
 			}
 			System.out.print("Han guanyat els banquers "+banquers.get(0).getNom()+" i "+banquers.get(1).getNom()+" cadascú té "+
-			bosses);
+			bosses+" bosses.");
 		}else{
 			banquers.get(0).setBosses(bosses);
-			System.out.print("Ha guanyat el banquer"+banquers.get(0).getNom()+" i té "+bosses);
+			System.out.print("Ha guanyat el banquer"+banquers.get(0).getNom()+" i té "+bosses+" bosses.");
 		}
 		
 		
