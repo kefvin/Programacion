@@ -10,6 +10,7 @@ public class Jugador {
 	
 	int fuerza;
 	GImage imagen;
+	GRectangle mida;
 	
 	public Jugador(GImage image){
 		
@@ -20,6 +21,15 @@ public class Jugador {
 	    return imagen.getBounds();
 	}
 	
+	//Mou el jugador
+		public void mou(int x) {
+		    imagen.move(x * 1 , 0);
+	}
+	
+	//posiciona jugador
+		public void Posiciona(int x, int y, Jugador jugador){
+			jugador.setLocation();
+		}
 	
 	//Retorna la força
 	public int getFuerza(){
