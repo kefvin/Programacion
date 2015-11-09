@@ -14,7 +14,7 @@ public class App extends GraphicsProgram{
 	public static final int MIDAPANTALLA = 600;
 	
 	public void run(){
-		//GImage pfemella = new GImage("peixa.png");
+		
 		GRectangle pantalla = new GRectangle(0, 0, MIDAPANTALLA, MIDAPANTALLA); 
 				
 		ArrayList<ElsPeixicos> Peixos = new ArrayList<ElsPeixicos>(); 
@@ -26,19 +26,27 @@ public class App extends GraphicsProgram{
 		
 	}
 	
-	private void generaPeixos(){
+private void generaPeixos(){
 		
 		Random aleatori = new Random();
-		GImage pmascle = new GImage("peix.png");
-		boolean[] sexe = {true, false};
+		boolean[] sexes = {true, false};
+		boolean sexe = sexes[aleatori.nextInt(sexes.length)];
+		GImage Ipeixa = new GImage("peixa.png");
+		GImage Ipeix = new GImage("peix.png");
+		
+		if(sexe==true){
+			add(Ipeix);
+		}else{
+			add(Ipeixa);
+		}
 		
 		ElsPeixicos peix = new ElsPeixicos(
-				pmascle,
-				aleatori.nextInt((int)(MIDAPANTALLA-pmascle.getWidth())),
-				0,
-				sexe[aleatori.nextInt(sexe.length)]
+				Ipeix,
+				aleatori.nextInt((int)(MIDAPANTALLA-Ipeix.getWidth())),
+				aleatori.nextInt((int)(MIDAPANTALLA-Ipeix.getHeight())),
+				sexe
 				);
-		add(peix);
+		
 	}
 	
 	
