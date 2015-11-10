@@ -9,16 +9,23 @@ public class ElsPeixicos {
 	GRectangle rectangle;
 	public static final int MUEVEN = 20;
 	boolean esMascle;
+	int angle;
 	
 	
-	public ElsPeixicos(GImage imatge, int x, int y, boolean sexe){
+	public ElsPeixicos(GImage imatge, boolean sexe, int angulo){
 		imagen = imatge;
-		imagen.setLocation(x, y);
 		esMascle = sexe;
+		angle= angulo;
+		
 	}
 	
-	public void mou(int x, int y) {
-	    imagen.move(x , y);
+	public void colocar( int x, int y){
+		imagen.setLocation(x, y);
+	}
+	
+	
+	public void mou() {
+	    imagen.movePolar(MUEVEN, angle);
 	}
 	
 	

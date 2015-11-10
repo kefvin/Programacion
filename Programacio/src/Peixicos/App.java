@@ -31,20 +31,26 @@ private void generaPeixos(){
 		Random aleatori = new Random();
 		boolean[] sexes = {true, false};
 		boolean sexe = sexes[aleatori.nextInt(sexes.length)];
-		GImage Ipeixa = new GImage("peixa.png");
-		GImage Ipeix = new GImage("peix.png");
+		GImage imatge;
+		
 		
 		if(sexe==true){
-			add(Ipeix);
+			imatge = new GImage("peix.png");
+			
 		}else{
-			add(Ipeixa);
+			imatge = new GImage("peixa.png");
+			
 		}
+		add(imatge);
 		
 		ElsPeixicos peix = new ElsPeixicos(
-				Ipeix,
-				aleatori.nextInt((int)(MIDAPANTALLA-Ipeix.getWidth())),
-				aleatori.nextInt((int)(MIDAPANTALLA-Ipeix.getHeight())),
-				sexe
+				imatge,
+				sexe,
+				aleatori.nextInt(4)*90		
+				);
+		peix.colocar(
+				aleatori.nextInt((int)(MIDAPANTALLA-imatge.getWidth())),
+				aleatori.nextInt((int)(MIDAPANTALLA-imatge.getHeight()))
 				);
 		
 	}
