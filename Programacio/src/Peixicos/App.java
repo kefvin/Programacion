@@ -10,19 +10,24 @@ import acm.program.GraphicsProgram;
 
 public class App extends GraphicsProgram{
 	
+	Peixera peixera = new Peixera();
 
 	public static final int MIDAPANTALLA = 600;
+	GRectangle pantalla;
 	
 	public void run(){
 		
-		GRectangle pantalla = new GRectangle(0, 0, MIDAPANTALLA, MIDAPANTALLA); 
-				
-		ArrayList<ElsPeixicos> Peixos = new ArrayList<ElsPeixicos>(); 
+		 pantalla = new GRectangle(0, 0, MIDAPANTALLA, MIDAPANTALLA);
+				 
 		
 		for(int i=0; i<10 ;i++){
 			generaPeixos();
 		}
-		
+
+		while(peixera.fin()){
+			pause(100);
+			peixera.mourePeixos();
+		}
 		
 	}
 	
@@ -46,15 +51,20 @@ private void generaPeixos(){
 		ElsPeixicos peix = new ElsPeixicos(
 				imatge,
 				sexe,
-				aleatori.nextInt(4)*90		
+				aleatori.nextInt(3)*90		
 				);
 		peix.colocar(
 				aleatori.nextInt((int)(MIDAPANTALLA-imatge.getWidth())),
 				aleatori.nextInt((int)(MIDAPANTALLA-imatge.getHeight()))
 				);
 		
+		
+		peixera.afegirPeix(peix);
+		
 	}
 	
-	
+	public void init() {
+		setSize(600, 600);
+	}
 	
 }

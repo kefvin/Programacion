@@ -7,7 +7,7 @@ public class ElsPeixicos {
 	
 	GImage imagen;
 	GRectangle rectangle;
-	public static final int MUEVEN = 20;
+	public static final int MUEVEN = 2;
 	boolean esMascle;
 	int angle;
 	
