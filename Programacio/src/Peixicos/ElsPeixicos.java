@@ -6,7 +6,7 @@ import acm.graphics.GRectangle;
 public class ElsPeixicos {
 	
 	GImage imagen;
-	GRectangle rectangle;
+	//GRectangle rectangle;
 	public static final int MUEVEN = 2;
 	boolean esMascle;
 	int angle;
@@ -26,6 +26,18 @@ public class ElsPeixicos {
 	
 	public void mou() {
 	    imagen.movePolar(MUEVEN, angle);
+	}
+	
+	public GRectangle posicioPeix(){
+		return imagen.getBounds();
+	}
+	
+	public int altPeix(){
+		return (int) imagen.getHeight();
+	}
+	
+	public int amplePeix(){
+		return (int) imagen.getWidth();
 	}
 	
 	
