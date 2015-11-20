@@ -23,23 +23,40 @@ public class Peixera {
 	public void mourePeixos(){
 		for(ElsPeixicos p:peixos){
 			p.mou();
+			p.estaVivo();
+			/*Llamar una función que me comprueve si el pez está vivo o muerto
+			 *  y si está vivo comprueva que sean del mismo sexo y so lo són 
+			 *  lo mata, sinó, otra cosa */
 			recolocarPeixos(p);
 		}
 	}
 	
+	
+	
+	
+	
+	
+	
 	public void recolocarPeixos(ElsPeixicos peix){
-		for(ElsPeixicos p:peixos){
 			//if x peix choca on le borde, recolocalo
 			/*if(//si se pasan de la medida definida de la pantalla... (no intersects)){
 			}*/
-			if(peix.posicioPeix().getX() > MIDAPANTALLA){
-				//int temp0 = (int) peix.posicioPeix().getX();
-				int temp1 = ((int) peix.posicioPeix().getX()) % 800;
-				int temp2 = temp1 - peix.amplePeix();
-				peix.colocar(temp2, (int) peix.posicioPeix().getX());
+			if(peix.posicioPeix().getX() > MIDAPANTALLA+peix.amplePeix()){
+				
+				peix.colocar(0-peix.amplePeix()    ,   (int) peix.posicioPeix().getY());
+				
+			}else if(peix.posicioPeix().getX() < 0-peix.amplePeix()){
+				peix.colocar(MIDAPANTALLA+peix.amplePeix()   ,   (int) peix.posicioPeix().getY());
+				
+			}else if(peix.posicioPeix().getY() > MIDAPANTALLA){
+				
+				peix.colocar((int) peix.posicioPeix().getX()    ,   MIDAPANTALLA-peix.altPeix());
+				
+			}else if(peix.posicioPeix().getY() < 0-peix.amplePeix()){
+				peix.colocar((int) peix.posicioPeix().getX()   ,   MIDAPANTALLA+peix.altPeix());
 			}
 			
-		}
+		
 	}
 	
 	public boolean fin(){

@@ -64,7 +64,7 @@ private void generaPeixos(){
 	}
 	
 	public void init() {
-		setSize(600, 600);
+		setSize(MIDAPANTALLA, MIDAPANTALLA);
 	}
 	
 }

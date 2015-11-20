@@ -10,6 +10,7 @@ public class ElsPeixicos {
 	public static final int MUEVEN = 2;
 	boolean esMascle;
 	int angle;
+	boolean vivo = true;
 	
 	
 	public ElsPeixicos(GImage imatge, boolean sexe, int angulo){
@@ -40,5 +41,12 @@ public class ElsPeixicos {
 		return (int) imagen.getWidth();
 	}
 	
+	public boolean estaVivo(){
+		return vivo;
+	}
+	
+	public void matar(){
+		
+	}
 	
 }
