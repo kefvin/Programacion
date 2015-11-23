@@ -23,12 +23,28 @@ public class Peixera {
 	public void mourePeixos(){
 		for(ElsPeixicos p:peixos){
 			p.mou();
-			p.estaVivo();
 			/*Llamar una función que me comprueve si el pez está vivo o muerto
 			 *  y si está vivo comprueva que sean del mismo sexo y so lo són 
 			 *  lo mata, sinó, otra cosa */
+			compruevaVivoYMata(p);
 			recolocarPeixos(p);
 		}
+	}
+	
+	public void compruevaVivoYMata(ElsPeixicos p){
+		boolean vivo = p.estaVivo();
+		boolean mascle = p.getSexe();
+		boolean xoca;
+		for(ElsPeixicos actual:peixos){
+			if(p.xoca(actual)){
+				if(p.estaVivo() && p.getSexe() == actual.getSexe()){
+					
+				}
+			 
+			}
+		}
+		
+		
 	}
 	
 	

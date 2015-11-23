@@ -7,16 +7,17 @@ public class ElsPeixicos {
 	
 	GImage imagen;
 	//GRectangle rectangle;
-	public static final int MUEVEN = 2;
+	public static final int MUEVEN = 7;
 	boolean esMascle;
 	int angle;
-	boolean vivo = true;
+	boolean vivo;
 	
 	
 	public ElsPeixicos(GImage imatge, boolean sexe, int angulo){
 		imagen = imatge;
 		esMascle = sexe;
 		angle= angulo;
+		vivo = true;
 		
 	}
 	
@@ -47,6 +48,17 @@ public class ElsPeixicos {
 	
 	public void matar(){
 		
+	}
+	
+	public boolean getSexe(){
+		return esMascle;
+	}
+	
+	public boolean xoca(ElsPeixicos actual){
+		if(imagen.getBounds().intersects(actual.posicioPeix())){
+			return true;
+		}
+		return false;
 	}
 	
 }
