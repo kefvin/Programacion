@@ -21,33 +21,48 @@ public class Peixera {
 	
 	
 	public void mourePeixos(){
+		
 		for(ElsPeixicos p:peixos){
+			if(p.vivo){
 			p.mou();
-			/*Llamar una función que me comprueve si el pez está vivo o muerto
-			 *  y si está vivo comprueva que sean del mismo sexo y so lo són 
-			 *  lo mata, sinó, otra cosa */
 			compruevaVivoYMata(p);
 			recolocarPeixos(p);
 		}
+	}
 	}
 	
 	public void compruevaVivoYMata(ElsPeixicos p){
 		boolean vivo = p.estaVivo();
 		boolean mascle = p.getSexe();
 		boolean xoca;
+		//recorre la lista de peces
 		for(ElsPeixicos actual:peixos){
-			if(p.xoca(actual)){
-				if(p.estaVivo() && p.getSexe() == actual.getSexe()){
+			
+			//Si chocan y al que me choco está vivo
+			if(p.xoca(actual) &&  actual.vivo){
+				
+				//Y no es el pez actual
+				if(p!=actual){
 					
+					//Y son del mismo sexo
+					if(p.getSexe() == actual.getSexe()){
+						p.matar();
+						actual.matar();
+					}else{
+						//A criar como conejos
+						nacer();
+						
+					}
 				}
-			 
 			}
 		}
 		
 		
 	}
 	
-	
+	public void nacer(){
+		
+	}
 	
 	
 	

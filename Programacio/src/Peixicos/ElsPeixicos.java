@@ -10,15 +10,13 @@ public class ElsPeixicos {
 	public static final int MUEVEN = 7;
 	boolean esMascle;
 	int angle;
-	boolean vivo;
+	boolean vivo = true;
 	
 	
 	public ElsPeixicos(GImage imatge, boolean sexe, int angulo){
 		imagen = imatge;
 		esMascle = sexe;
-		angle= angulo;
-		vivo = true;
-		
+		angle= angulo;		
 	}
 	
 	public void colocar( int x, int y){
@@ -47,7 +45,8 @@ public class ElsPeixicos {
 	}
 	
 	public void matar(){
-		
+		imagen.setVisible(false);
+		vivo=false;
 	}
 	
 	public boolean getSexe(){
@@ -60,5 +59,6 @@ public class ElsPeixicos {
 		}
 		return false;
 	}
+	
 	
 }
